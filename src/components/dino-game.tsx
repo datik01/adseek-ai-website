@@ -222,15 +222,21 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
       />
 
       {/* Dino */}
-      <div
-        className="absolute bg-green-600"
+      <pre
+        className="absolute text-green-600 text-xs leading-none font-mono" // Use pre for ASCII, adjust styling
         style={{
           left: `${DINO_X}px`,
-          bottom: `${GAME_HEIGHT - gameState.dinoY - DINO_HEIGHT}px`, // Position from bottom
-          width: `${DINO_WIDTH}px`,
-          height: `${DINO_HEIGHT}px`,
+          bottom: `${GAME_HEIGHT - gameState.dinoY - DINO_HEIGHT}px`, // Keep positioning logic
+          // Width/Height are now implicit based on ASCII art content and font size
         }}
-      />
+      >{`
+    ____
+ __/ O O\\
+ \\ \\____/
+  \\____/
+  /   /
+ /___/
+      `}</pre>
 
       {/* Obstacles */}
       {gameState.obstacles.map((obs, index) => (
