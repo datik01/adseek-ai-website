@@ -5,26 +5,24 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
-    "SkyAgent",
-    "AI",
-    "Agent",
-    "Magic UI",
-    "Freelancer",
-    "UI/UX",
-    "Developer",
-    "React Template",
-    "Next.js Template",
-    "Tailwind",
-    "Shadcn",
-    "Tailwind V4",
+    "SkillStack",
+    "Skill Contest",
+    "Prediction Contest",
+    "Gaming Contest",
+    "Decentralized Platform",
+    "User-Powered",
+    "Cash Rewards",
+    "VIP Creator",
+    "Skill-Based Gaming",
+    "Online Contests",
   ],
-  authors: [
+  authors: [ // Keep author for now, update if needed
     {
       name: "Dillion Verma",
       url: "https://magicui.design",
     },
   ],
-  creator: "dillionverma",
+  creator: "dillionverma", // Keep creator for now, update if needed
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: "@dillionverma",
+    creator: "@dillionverma", // Keep creator handle for now, update if needed
   },
   robots: {
     index: true,

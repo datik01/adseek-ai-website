@@ -29,29 +29,37 @@ export const Highlight = ({
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-  name: "Cal AI",
-  description: "Smart scheduling powered by AI.",
-  cta: "Get Started",
-  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  name: "SkillStack",
+  description: "The world’s first decentralized, user-powered skill contest platform.",
+  cta: "Sign Up", // Updated CTA text
+  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000", // Keep URL for now
   keywords: [
-    "AI Calendar",
-    "Smart Scheduling",
-    "Productivity",
-    "Time Management",
+    "SkillStack",
+    "Skill Contest",
+    "Prediction Contest",
+    "Gaming Contest",
+    "Decentralized Platform",
+    "User-Powered",
+    "Cash Rewards",
+    "VIP Creator",
+    "Skill-Based Gaming",
+    "Online Contests",
   ],
-  links: {
-    email: "support@calai.app",
-    twitter: "https://twitter.com/calaiapp",
-    discord: "https://discord.gg/calaiapp",
-    github: "https://github.com/calaiapp",
-    instagram: "https://instagram.com/calaiapp",
+  links: { // Update with actual links later
+    email: "support@skillstack.app",
+    twitter: "#",
+    discord: "#",
+    github: "#",
+    instagram: "#",
   },
   nav: {
     links: [
       { id: 1, name: "Home", href: "#hero" },
-      { id: 2, name: "How it Works", href: "#bento" },
-      { id: 3, name: "Features", href: "#features" },
-      { id: 4, name: "Pricing", href: "#pricing" },
+      { id: 2, name: "How it Works", href: "#bento" }, // Keep bento for "How it Works" for now
+      { id: 3, name: "Contests", href: "#contests" }, // Add Contests section link
+      { id: 4, name: "Game", href: "/game" }, // Add Game page link
+      { id: 5, name: "VIP", href: "#pricing" }, // Use pricing section for VIP info
+      { id: 6, name: "FAQ", href: "#faq" }, // Add FAQ link (Update ID)
     ],
   },
   hero: {
@@ -67,20 +75,20 @@ export const siteConfig = {
         <path d="M7.62758 1.09876C7.74088 1.03404 7.8691 1 7.99958 1C8.13006 1 8.25828 1.03404 8.37158 1.09876L13.6216 4.09876C13.7363 4.16438 13.8316 4.25915 13.8979 4.37347C13.9642 4.48779 13.9992 4.6176 13.9992 4.74976C13.9992 4.88191 13.9642 5.01172 13.8979 5.12604C13.8316 5.24036 13.7363 5.33513 13.6216 5.40076L8.37158 8.40076C8.25828 8.46548 8.13006 8.49952 7.99958 8.49952C7.8691 8.49952 7.74088 8.46548 7.62758 8.40076L2.37758 5.40076C2.26287 5.33513 2.16753 5.24036 2.10123 5.12604C2.03492 5.01172 2 4.88191 2 4.74976C2 4.6176 2.03492 4.48779 2.10123 4.37347C2.16753 4.25915 2.26287 4.16438 2.37758 4.09876L7.62758 1.09876Z" />
         <path d="M2.56958 7.23928L2.37758 7.34928C2.26287 7.41491 2.16753 7.50968 2.10123 7.624C2.03492 7.73831 2 7.86813 2 8.00028C2 8.13244 2.03492 8.26225 2.10123 8.37657C2.16753 8.49089 2.26287 8.58566 2.37758 8.65128L7.62758 11.6513C7.74088 11.716 7.8691 11.75 7.99958 11.75C8.13006 11.75 8.25828 11.716 8.37158 11.6513L13.6216 8.65128C13.7365 8.58573 13.8321 8.49093 13.8986 8.3765C13.965 8.26208 14 8.13211 14 7.99978C14 7.86745 13.965 7.73748 13.8986 7.62306C13.8321 7.50864 13.7365 7.41384 13.6216 7.34828L13.4296 7.23828L9.11558 9.70328C8.77568 9.89744 8.39102 9.99956 7.99958 9.99956C7.60814 9.99956 7.22347 9.89744 6.88358 9.70328L2.56958 7.23928Z" />
         <path d="M2.37845 10.5993L2.57045 10.4893L6.88445 12.9533C7.22435 13.1474 7.60901 13.2496 8.00045 13.2496C8.39189 13.2496 8.77656 13.1474 9.11645 12.9533L13.4305 10.4883L13.6225 10.5983C13.7374 10.6638 13.833 10.7586 13.8994 10.8731C13.9659 10.9875 14.0009 11.1175 14.0009 11.2498C14.0009 11.3821 13.9659 11.5121 13.8994 11.6265C13.833 11.7409 13.7374 11.8357 13.6225 11.9013L8.37245 14.9013C8.25915 14.966 8.13093 15 8.00045 15C7.86997 15 7.74175 14.966 7.62845 14.9013L2.37845 11.9013C2.2635 11.8357 2.16795 11.7409 2.10148 11.6265C2.03501 11.5121 2 11.3821 2 11.2498C2 11.1175 2.03501 10.9875 2.10148 10.8731C2.16795 10.7586 2.2635 10.6638 2.37845 10.5983V10.5993Z" />
-      </svg>
+      </svg> // Keeping the icon for now, can be updated later
     ),
-    badge: "Introducing custom automations",
-    title: "Meet your AI Agent Streamline your workflow",
+    badge: "🏆 Skill Contest Platform",
+    title: "SkillStack: Compete. Win. Earn.",
     description:
-      "AI assistant designed to streamline your digital workflows and handle mundane tasks, so you can focus on what truly matters",
+      "Compete in skill-based prediction and gaming contests. Host your own, grow your audience, and earn real cash rewards.",
     cta: {
       primary: {
-        text: "Try for Free",
-        href: "#",
+        text: "Browse Contests",
+        href: "#contests", // Link to future contests section
       },
       secondary: {
-        text: "Log in",
-        href: "#",
+        text: "Become a VIP",
+        href: "#vip", // Link to future VIP section
       },
     },
   },
@@ -286,83 +294,83 @@ export const siteConfig = {
     ],
   },
   featureSection: {
-    title: "Simple. Seamless. Smart.",
+    title: "Key SkillStack Features",
     description:
-      "Discover how SkyAgent transforms your commands into action in four easy steps",
+      "Explore the core components that make SkillStack the ultimate skill contest platform.",
     items: [
       {
         id: 1,
-        title: "Ask Your AI Agent Directly",
+        title: "Skill-Based Contests",
         content:
-          "Speak or type your command—let SkyAgent capture your intent. Your request instantly sets the process in motion.",
+          "Compete in diverse prediction and gaming contests where only skill determines the winner. Fair, transparent, and rewarding.",
         image:
-          "https://images.unsplash.com/photo-1720371300677-ba4838fa0678?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Placeholder image
       },
       {
         id: 2,
-        title: "Let SkyAgent Process It",
+        title: "Free Weekly Entry",
         content:
-          "We prioritize the needs and preferences of our users in our design process.",
+          "Every user gets one free entry per week, ensuring compliance and offering a risk-free way to compete for cash prizes.",
         image:
-          "https://images.unsplash.com/photo-1686170287433-c95faf6d3608?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Placeholder image
       },
       {
         id: 3,
-        title: "Receive Instant, Actionable Results",
+        title: "VIP Creator Tools",
         content:
-          "Our features seamlessly integrate with your existing systems for a smooth experience.",
+          "Upgrade to VIP to host your own contests, set rules, grow your audience, and earn a percentage of the prize pool.",
         image:
-          "https://images.unsplash.com/photo-1720378042271-60aff1e1c538?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Placeholder image
       },
       {
         id: 4,
-        title: "Continuous Improvement",
+        title: "Secure Payouts",
         content:
-          "We are constantly updating and improving our features to provide the best experience.",
+          "Winners receive real cash rewards funded by the player pool. Withdraw your earnings securely via multiple methods.",
         image:
-          "https://images.unsplash.com/photo-1666882990322-e7f3b8df4f75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+          "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Placeholder image
       },
     ],
   },
   bentoSection: {
-    title: "Empower Your Workflow with AI",
+    title: "How SkillStack Works",
     description:
-      "Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to streamline your operations.",
+      "Join skill-based contests, compete for cash prizes, or host your own as a VIP.",
     items: [
       {
         id: 1,
-        content: <FirstBentoAnimation />,
-        title: "Real-time AI Collaboration",
+        content: <FirstBentoAnimation />, // Keep animation for now
+        title: "Browse & Enter Contests",
         description:
-          "Experience real-time assistance. Ask your AI Agent to coordinate tasks, answer questions, and maintain team alignment.",
+          "Explore prediction and gaming contests. Use your weekly free entry or pay to join.",
       },
       {
         id: 2,
-        content: <SecondBentoAnimation />,
-        title: "Seamless Integrations",
+        content: <SecondBentoAnimation />, // Keep animation for now
+        title: "Submit Your Skill",
         description:
-          "Unite your favorite tools for effortless connectivity. Boost productivity through interconnected workflows.",
+          "Make your prediction or submit your game score before the deadline.",
       },
       {
         id: 3,
         content: (
-          <ThirdBentoAnimation
+          <ThirdBentoAnimation // Keep animation for now
             data={[20, 30, 25, 45, 40, 55, 75]}
             toolTipValues={[
               1234, 1678, 2101, 2534, 2967, 3400, 3833, 4266, 4700, 5133,
             ]}
           />
         ),
-        title: "Instant Insight Reporting",
+        title: "Win Real Rewards",
         description:
-          "Transform raw data into clear insights in seconds. Empower smarter decisions with real-time, always-learning intelligence.",
+          "Top performers win cash prizes funded by the entry pool. Withdraw your earnings easily.",
       },
       {
         id: 4,
-        content: <FourthBentoAnimation once={false} />,
-        title: "Smart Automation",
+        content: <FourthBentoAnimation once={false} />, // Keep animation for now
+        title: "Host as a VIP",
         description:
-          "Set it, forget it. Your AI Agent tackles repetitive tasks so you can focus on strategy, innovation, and growth.",
+          "Upgrade to VIP, create your own contests, grow your audience, and earn a cut.",
       },
     ],
   },
@@ -389,14 +397,14 @@ export const siteConfig = {
     },
   ],
   growthSection: {
-    title: "Built for Secure Growth",
+    title: "Grow with SkillStack",
     description:
-      "Where advanced security meets seamless scalability—designed to protect your data and empower your growth.",
+      "Level up from player to creator. Build your audience, host contests, and earn within the SkillStack ecosystem.",
     items: [
       {
-        id: 1,
+        id: 1, // Represents VIP Creator Economy
         content: (
-          <div
+          <div // Keep existing visual component for now
             className="relative flex size-full items-center justify-center overflow-hidden transition-all duration-300 hover:[mask-image:none] hover:[webkit-mask-image:none]"
             style={{
               WebkitMaskImage: `url("data:image/svg+xml,%3Csvg width='265' height='268' viewBox='0 0 265 268' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fillRule='evenodd' clipRule='evenodd' d='M121.384 4.5393C124.406 1.99342 128.319 0.585938 132.374 0.585938C136.429 0.585938 140.342 1.99342 143.365 4.5393C173.074 29.6304 210.174 45.6338 249.754 50.4314C253.64 50.9018 257.221 52.6601 259.855 55.3912C262.489 58.1223 264.005 61.6477 264.13 65.3354C265.616 106.338 254.748 146.9 232.782 182.329C210.816 217.759 178.649 246.61 140.002 265.547C137.645 266.701 135.028 267.301 132.371 267.298C129.715 267.294 127.1 266.686 124.747 265.526C86.0991 246.59 53.9325 217.739 31.9665 182.309C10.0005 146.879 -0.867679 106.317 0.618784 65.3147C0.748654 61.6306 2.26627 58.1102 4.9001 55.3833C7.53394 52.6565 11.1121 50.9012 14.9945 50.4314C54.572 45.6396 91.6716 29.6435 121.384 4.56V4.5393Z' fill='black'/%3E%3C/svg%3E")`,
@@ -671,91 +679,88 @@ export const siteConfig = {
           </div>
         ),
 
-        title: "Advanced Task Security",
+        title: "Become a VIP Creator",
         description:
-          "Safeguard your tasks with state-of-art encryption and secure access to your workflow data.",
+          "Host your own skill contests, define the rules, attract players, and earn a share of the prize pool.",
       },
       {
-        id: 2,
+        id: 2, // Represents Community / Leaderboards
         content: (
           <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden [mask-image:linear-gradient(to_top,transparent,black_50%)] -translate-y-20">
-            <Globe className="top-28" />
-          </div>
+            <Globe className="top-28" /> 
+          </div> // Keep existing visual component for now
         ),
 
-        title: "Scalable for Teams",
+        title: "Climb the Leaderboards",
         description:
-          "Grow with your team. Track tasks across multiple workspaces and all team members.",
+          "Compete for top spots in weekly and all-time leaderboards. Earn bragging rights and exclusive rewards.",
       },
     ],
   },
   quoteSection: {
     quote:
-      "SkyAgent has transformed our daily operations. Tasks that once consumed hours now complete in moments, freeing our team to focus on creativity and strategic growth.",
+      "SkillStack's contests are legit! Won $500 last week just by predicting crypto prices. Easy withdrawals and fun competition.",
     author: {
-      name: "Alex Johnson",
-      role: "CTO, Innovatech",
-      image: "https://randomuser.me/api/portraits/men/91.jpg",
+      name: "Sarah L.", // Example user
+      role: "Weekly Contest Winner",
+      image: "https://randomuser.me/api/portraits/women/31.jpg", // Example image
     },
   },
   pricing: {
-    title: "Pricing that scales with you",
+    title: "Become a SkillStack VIP",
     description:
-      "Whichever plan you pick, it's free until you love your docs. That's our promise.",
+      "Host contests, grow your audience, and earn from your community.",
     pricingItems: [
       {
-        name: "Free",
-        href: "#",
+        name: "Player", // Free tier for regular users
+        href: "#", // Link to Sign Up
         price: "$0",
-        period: "month",
+        period: "always",
         yearlyPrice: "$0",
         features: [
-          "Custom domain",
-          "SEO-optimizations",
-          "Auto-generated API docs",
-          "Built-in components library",
+          "Enter public contests",
+          "1 Free entry per week",
+          "Win cash prizes",
+          "Withdraw earnings",
         ],
-        description: "Perfect for individual users",
-        buttonText: "Start Free",
+        description: "Compete and win",
+        buttonText: "Sign Up Free",
         buttonColor: "bg-accent text-primary",
         isPopular: false,
       },
       {
-        name: "Startup",
-        href: "#",
-        price: "$12",
+        name: "Creator VIP",
+        href: "#", // Link to VIP Sign Up
+        price: "$29",
         period: "month",
-        yearlyPrice: "$120",
+        yearlyPrice: "$290", // Example yearly price
         features: [
-          "Custom domain",
-          "SEO-optimizations",
-          "Auto-generated API docs",
-          "Built-in components library",
-          "E-commerce integration",
-          "User authentication system",
-          "Multi-language support",
-          "Real-time collaboration tools",
+          "Host public contests",
+          "Set custom rules",
+          "Earn % of prize pool",
+          "Basic analytics",
+          "Creator profile badge",
         ],
-        description: "Ideal for professionals and small teams",
-        buttonText: "Upgrade to Pro",
+        description: "Host contests & start earning",
+        buttonText: "Go Creator",
         buttonColor: "bg-secondary text-white",
         isPopular: true,
       },
       {
-        name: "Enterprise",
-        href: "#",
-        price: "$24",
+        name: "Pro Creator VIP",
+        href: "#", // Link to VIP Sign Up
+        price: "$79",
         period: "month",
-        yearlyPrice: "$240",
+        yearlyPrice: "$790", // Example yearly price
         features: [
-          "Custom domain",
-          "SEO-optimizations",
-          "Auto-generated API docs",
-          "Built-in components librarys",
-          "Real-time collaboration tools",
+          "All Creator features",
+          "Advanced analytics",
+          "Custom contest branding",
+          "Priority support",
+          "Early access to new features",
         ],
-        description: "Best for large teams and enterprise-level organizations",
-        buttonText: "Contact Sales",
+        description: "Maximize earnings & audience growth",
+        buttonText: "Go Pro",
         buttonColor: "bg-primary text-primary-foreground",
         isPopular: false,
       },
@@ -764,201 +769,90 @@ export const siteConfig = {
   testimonials: [
     {
       id: "1",
-      name: "Alex Rivera",
-      role: "CTO at InnovateTech",
-      img: "https://randomuser.me/api/portraits/men/91.jpg",
+      name: "Mike T.",
+      role: "Weekly Winner",
+      img: "https://randomuser.me/api/portraits/men/32.jpg", // Example image
       description: (
         <p>
-          The AI-driven analytics from #QuantumInsights have revolutionized our
-          product development cycle.
+          Been playing the prediction contests for a month and finally hit the
+          jackpot!
           <Highlight>
-            Insights are now more accurate and faster than ever.
+            The free weekly entry makes it easy to try different contests.
           </Highlight>{" "}
-          A game-changer for tech companies.
+          Love the platform! #SkillStackWin
         </p>
       ),
     },
     {
       id: "2",
-      name: "Samantha Lee",
-      role: "Marketing Director at NextGen Solutions",
-      img: "https://randomuser.me/api/portraits/women/12.jpg",
+      name: "CryptoQueen",
+      role: "VIP Creator",
+      img: "https://randomuser.me/api/portraits/women/44.jpg", // Example image
       description: (
         <p>
-          Implementing #AIStream&apos;s customer prediction model has
-          drastically improved our targeting strategy.
-          <Highlight>Seeing a 50% increase in conversion rates!</Highlight>{" "}
-          Highly recommend their solutions.
+          Hosting my own crypto prediction contests on #SkillStack has been
+          amazing for engaging my audience.
+          <Highlight>Earning a cut from the prize pool is a huge bonus!</Highlight>{" "}
+          Super easy to set up.
         </p>
       ),
     },
     {
       id: "3",
-      name: "Raj Patel",
-      role: "Founder & CEO at StartUp Grid",
-      img: "https://randomuser.me/api/portraits/men/45.jpg",
+      name: "GamerPro1",
+      role: "Gaming Contest Player",
+      img: "https://randomuser.me/api/portraits/men/75.jpg", // Example image
       description: (
         <p>
-          As a startup, we need to move fast and stay ahead. #CodeAI&apos;s
-          automated coding assistant helps us do just that.
-          <Highlight>Our development speed has doubled.</Highlight> Essential
-          tool for any startup.
+          Finally, a platform where my gaming skills actually pay off. The
+          contests are fair and payouts are quick.
+          <Highlight>It's pure skill, no luck involved.</Highlight> #SkillGamer
         </p>
       ),
     },
     {
       id: "4",
-      name: "Emily Chen",
-      role: "Product Manager at Digital Wave",
-      img: "https://randomuser.me/api/portraits/women/83.jpg",
+      name: "FinanceGuru",
+      role: "VIP Creator",
+      img: "https://randomuser.me/api/portraits/men/61.jpg", // Example image
       description: (
         <p>
-          #VoiceGen&apos;s AI-driven voice synthesis has made creating global
-          products a breeze.
-          <Highlight>Localization is now seamless and efficient.</Highlight> A
-          must-have for global product teams.
+          SkillStack's VIP tools let me create unique stock prediction
+          challenges for my followers.
+          <Highlight>Great way to build community and monetize.</Highlight> The
+          analytics help me tailor contests.
         </p>
       ),
     },
     {
       id: "5",
-      name: "Michael Brown",
-      role: "Data Scientist at FinTech Innovations",
-      img: "https://randomuser.me/api/portraits/men/1.jpg",
+      name: "Jessica P.",
+      role: "Casual Player",
+      img: "https://randomuser.me/api/portraits/women/68.jpg", // Example image
       description: (
         <p>
-          Leveraging #DataCrunch&apos;s AI for our financial models has given us
-          an edge in predictive accuracy.
+          Love using my free weekly entry on different prediction games. Haven't
+          won big yet, but it's fun to compete.
           <Highlight>
-            Our investment strategies are now powered by real-time data
-            analytics.
+            The platform is clean and easy to navigate.
           </Highlight>{" "}
-          Transformative for the finance industry.
+          #FunAndGames
         </p>
       ),
     },
+    // Add more testimonials as needed, maybe 1-2 more for variety
     {
       id: "6",
-      name: "Linda Wu",
-      role: "VP of Operations at LogiChain Solutions",
-      img: "https://randomuser.me/api/portraits/women/5.jpg",
+      name: "SportsFanatic",
+      role: "Prediction Player",
+      img: "https://randomuser.me/api/portraits/men/51.jpg", // Example image
       description: (
         <p>
-          #LogiTech&apos;s supply chain optimization tools have drastically
-          reduced our operational costs.
+          The sports prediction contests are awesome! It adds another layer of
+          excitement to watching games.
           <Highlight>
-            Efficiency and accuracy in logistics have never been better.
+            Knowing it's skill-based makes winning feel earned.
           </Highlight>{" "}
-        </p>
-      ),
-    },
-    {
-      id: "7",
-      name: "Carlos Gomez",
-      role: "Head of R&D at EcoInnovate",
-      img: "https://randomuser.me/api/portraits/men/14.jpg",
-      description: (
-        <p>
-          By integrating #GreenTech&apos;s sustainable energy solutions,
-          we&apos;ve seen a significant reduction in carbon footprint.
-          <Highlight>
-            Leading the way in eco-friendly business practices.
-          </Highlight>{" "}
-          Pioneering change in the industry.
-        </p>
-      ),
-    },
-    {
-      id: "8",
-      name: "Aisha Khan",
-      role: "Chief Marketing Officer at Fashion Forward",
-      img: "https://randomuser.me/api/portraits/women/56.jpg",
-      description: (
-        <p>
-          #TrendSetter&apos;s market analysis AI has transformed how we approach
-          fashion trends.
-          <Highlight>
-            Our campaigns are now data-driven with higher customer engagement.
-          </Highlight>{" "}
-          Revolutionizing fashion marketing.
-        </p>
-      ),
-    },
-    {
-      id: "9",
-      name: "Tom Chen",
-      role: "Director of IT at HealthTech Solutions",
-      img: "https://randomuser.me/api/portraits/men/18.jpg",
-      description: (
-        <p>
-          Implementing #MediCareAI in our patient care systems has improved
-          patient outcomes significantly.
-          <Highlight>
-            Technology and healthcare working hand in hand for better health.
-          </Highlight>{" "}
-          A milestone in medical technology.
-        </p>
-      ),
-    },
-    {
-      id: "10",
-      name: "Sofia Patel",
-      role: "CEO at EduTech Innovations",
-      img: "https://randomuser.me/api/portraits/women/73.jpg",
-      description: (
-        <p>
-          #LearnSmart&apos;s AI-driven personalized learning plans have doubled
-          student performance metrics.
-          <Highlight>
-            Education tailored to every learner&apos;s needs.
-          </Highlight>{" "}
-          Transforming the educational landscape.
-        </p>
-      ),
-    },
-    {
-      id: "11",
-      name: "Jake Morrison",
-      role: "CTO at SecureNet Tech",
-      img: "https://randomuser.me/api/portraits/men/25.jpg",
-      description: (
-        <p>
-          With #CyberShield&apos;s AI-powered security systems, our data
-          protection levels are unmatched.
-          <Highlight>
-            Ensuring safety and trust in digital spaces.
-          </Highlight>{" "}
-          Redefining cybersecurity standards.
-        </p>
-      ),
-    },
-    {
-      id: "12",
-      name: "Nadia Ali",
-      role: "Product Manager at Creative Solutions",
-      img: "https://randomuser.me/api/portraits/women/78.jpg",
-      description: (
-        <p>
-          #DesignPro&apos;s AI has streamlined our creative process, enhancing
-          productivity and innovation.
-          <Highlight>Bringing creativity and technology together.</Highlight> A
-          game-changer for creative industries.
-        </p>
-      ),
-    },
-    {
-      id: "13",
-      name: "Omar Farooq",
-      role: "Founder at Startup Hub",
-      img: "https://randomuser.me/api/portraits/men/54.jpg",
-      description: (
-        <p>
-          #VentureAI&apos;s insights into startup ecosystems have been
-          invaluable for our growth and funding strategies.
-          <Highlight>
-            Empowering startups with data-driven decisions.
-          </Highlight>{" "}
-          A catalyst for startup success.
         </p>
       ),
     },
@@ -966,82 +860,82 @@ export const siteConfig = {
   faqSection: {
     title: "Frequently Asked Questions",
     description:
-      "Answers to common questions about SkyAgent and its features. If you have any other questions, please don't hesitate to contact us.",
+      "Find answers to common questions about SkillStack contests, payouts, and VIP features.",
     faQitems: [
       {
         id: 1,
-        question: "What is an AI Agent?",
+        question: "Is SkillStack considered gambling?",
         answer:
-          "An AI Agent is an intelligent software program that can perform tasks autonomously, learn from interactions, and make decisions to help achieve specific goals. It combines artificial intelligence and machine learning to provide personalized assistance and automation.",
+          "No. SkillStack contests are based on skill, not chance. Winners are determined by prediction accuracy or gaming performance, making it compliant with skill contest laws in most regions.",
       },
       {
         id: 2,
-        question: "How does SkyAgent work?",
+        question: "How do I win?",
         answer:
-          "SkyAgent works by analyzing your requirements, leveraging advanced AI algorithms to understand context, and executing tasks based on your instructions. It can integrate with your workflow, learn from feedback, and continuously improve its performance.",
+          "Winners are determined based on the contest rules. For prediction contests, it's typically the closest prediction. For gaming contests, it's based on scores or performance metrics. Check each contest's details for specific judging criteria.",
       },
       {
         id: 3,
-        question: "How secure is my data?",
+        question: "How are prize pools funded?",
         answer:
-          "We implement enterprise-grade security measures including end-to-end encryption, secure data centers, and regular security audits. Your data is protected according to industry best practices and compliance standards.",
+          "Prize pools are funded entirely by player entry fees for that specific contest. SkillStack takes a small percentage as a platform fee, and the rest goes to the winners.",
       },
       {
         id: 4,
-        question: "Can I integrate my existing tools?",
+        question: "What is the free weekly entry?",
         answer:
-          "Yes, SkyAgent is designed to be highly compatible with popular tools and platforms. We offer APIs and pre-built integrations for seamless connection with your existing workflow tools and systems.",
+          "Every registered user gets one free entry credit each week. This can be used to enter one eligible contest without paying the entry fee. Only one free entry participant is allowed per contest to ensure profitability.",
       },
       {
         id: 5,
-        question: "Is there a free trial available?",
+        question: "How do I withdraw my winnings?",
         answer:
-          "Yes, we offer a 14-day free trial that gives you full access to all features. No credit card is required to start your trial, and you can upgrade or cancel at any time.",
+          "Winners can withdraw their earnings through various methods like PayPal, gift cards, or crypto (where available). Withdrawals are typically processed weekly.",
       },
       {
         id: 6,
-        question: "How does SkyAgent save me time?",
+        question: "What are the benefits of being a VIP Creator?",
         answer:
-          "SkyAgent automates repetitive tasks, streamlines workflows, and provides quick solutions to common challenges. This automation and efficiency can save hours of manual work, allowing you to focus on more strategic activities.",
+          "VIP Creators can host their own public contests, set custom rules and prize structures, build an audience, and earn a percentage of the prize pool from their hosted contests. They also get access to analytics and other premium features.",
       },
     ],
   },
   ctaSection: {
     id: "cta",
-    title: "Automate. Simplify. Thrive",
-    backgroundImage: "/agent-cta-background.png",
+    title: "Ready to Test Your Skills?",
+    backgroundImage: "/agent-cta-background.png", // Keep background for now
     button: {
-      text: "Start Your 30-Day Free Trial Today",
-      href: "#",
+      text: "Sign Up & Get Your Free Entry",
+      href: "#", // Link to Sign Up
     },
-    subtext: "Cancel anytime, no questions asked",
+    subtext: "Join thousands competing for cash prizes!",
   },
   footerLinks: [
     {
+      title: "Platform",
+      links: [
+        { id: 1, title: "How it Works", url: "#bento" },
+        { id: 2, title: "Contests", url: "#contests" },
+        { id: 3, title: "VIP Program", url: "#pricing" },
+        { id: 4, title: "Leaderboards", url: "#" }, // Add link later
+      ],
+    },
+    {
       title: "Company",
       links: [
-        { id: 1, title: "About", url: "#" },
-        { id: 2, title: "Contact", url: "#" },
-        { id: 3, title: "Blog", url: "#" },
-        { id: 4, title: "Story", url: "#" },
+        { id: 5, title: "About Us", url: "#" },
+        { id: 6, title: "Blog", url: "#" },
+        { id: 7, title: "Contact", url: "#" },
+        { id: 8, title: "Careers", url: "#" },
       ],
     },
     {
-      title: "Products",
+      title: "Legal",
       links: [
-        { id: 5, title: "Company", url: "#" },
-        { id: 6, title: "Product", url: "#" },
-        { id: 7, title: "Press", url: "#" },
-        { id: 8, title: "More", url: "#" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { id: 9, title: "Press", url: "#" },
-        { id: 10, title: "Careers", url: "#" },
-        { id: 11, title: "Newsletters", url: "#" },
-        { id: 12, title: "More", url: "#" },
+        { id: 9, title: "Terms of Use", url: "#" }, // Add link later
+        { id: 10, title: "Contest Rules", url: "#" }, // Add link later
+        { id: 11, title: "Privacy Policy", url: "#" }, // Add link later
+        { id: 12, title: "Free Entry Rules", url: "#" }, // Add link later
       ],
     },
   ],

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // Import usePathname
 import { useEffect, useState } from "react";
 
 const INITIAL_WIDTH = "70rem";
@@ -52,33 +53,67 @@ const drawerMenuVariants = {
 
 export function Navbar() {
   const { scrollY } = useScroll();
+  const pathname = usePathname(); // Get current path
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState(""); // Initialize empty
 
+  // Effect to determine active section based on scroll or path
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = siteConfig.nav.links.map((item) =>
-        item.href.substring(1),
-      );
+     // Function to handle scroll detection for anchor links
+     const handleScroll = () => {
+       if (pathname !== '/') return; // Only run on homepage
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
+       const sections = siteConfig.nav.links
+         .filter(item => item.href.startsWith("#"))
+         .map((item) => item.href.substring(1));
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+       let currentSection = "";
+       let minDistance = Infinity;
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+       for (const section of sections) {
+         const element = document.getElementById(section);
+         if (element) {
+           const rect = element.getBoundingClientRect();
+           // Check if section is near the top of the viewport
+           if (rect.top >= -100 && rect.top <= 200) {
+              const distance = Math.abs(rect.top - 100);
+              if (distance < minDistance) {
+                  minDistance = distance;
+                  currentSection = section;
+              }
+           } else if (rect.top < -100 && rect.bottom > 100 && currentSection === "") {
+              // Fallback if a section spans the target area
+              currentSection = section;
+           }
+         }
+       }
+       if (currentSection && activeSection !== currentSection) {
+         setActiveSection(currentSection);
+       }
+     };
+
+     // Set initial active state based on path
+     if (pathname && pathname !== '/') {
+         if (siteConfig.nav.links.some(link => link.href === pathname)) {
+             setActiveSection(pathname);
+         } else {
+             setActiveSection(""); // Clear if path not in nav
+         }
+     } else {
+         // Default to first anchor or 'hero' on homepage load
+         const firstAnchor = siteConfig.nav.links.find(item => item.href.startsWith('#'))?.href.substring(1) || 'hero';
+         setActiveSection(firstAnchor);
+         handleScroll(); // Run scroll check immediately on homepage
+     }
+
+
+     // Add scroll listener only on the homepage
+     if (pathname === '/') {
+       window.addEventListener("scroll", handleScroll);
+       return () => window.removeEventListener("scroll", handleScroll);
+     }
+  }, [pathname, activeSection]); // Rerun when path changes or activeSection potentially updates
 
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
@@ -89,6 +124,38 @@ export function Navbar() {
 
   const toggleDrawer = () => setIsDrawerOpen((prev) => !prev);
   const handleOverlayClick = () => setIsDrawerOpen(false);
+
+  // Determine if a mobile link is active
+  const isMobileLinkActive = (item: { href: string }) => {
+    if (item.href.startsWith("/")) {
+      return pathname === item.href;
+    }
+    if (item.href.startsWith("#")) {
+      return pathname === '/' && activeSection === item.href.substring(1);
+    }
+    return false;
+  };
+
+  // Click handler for mobile anchor links
+  const handleMobileAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      if (!href.startsWith("#") || pathname !== '/') {
+          // If it's a page link, let default Link behavior handle it
+          // If it's an anchor but not on homepage, prevent default
+          if (href.startsWith("#")) e.preventDefault();
+          setIsDrawerOpen(false); // Close drawer anyway
+          return;
+      }
+
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+          const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 100;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      }
+      setIsDrawerOpen(false); // Close drawer after click
+  };
+
 
   return (
     <header
@@ -111,9 +178,9 @@ export function Navbar() {
           )}
         >
           <div className="flex h-[56px] items-center justify-between p-4">
-            <Link href="/" className="flex items-center gap-3">
-              <Icons.logo className="size-7 md:size-10" />
-              <p className="text-lg font-semibold text-primary">SkyAgent</p>
+            <Link href="/" className="flex items-center gap-1">
+              <Icons.logo className="size-7 md:size-10 text-[#155dfc]" />
+              <p className="text-lg font-semibold text-primary">SkillStack</p>
             </Link>
 
             <NavMenu />
@@ -122,9 +189,9 @@ export function Navbar() {
               <div className="flex items-center space-x-6">
                 <Link
                   className="bg-secondary h-8 hidden md:flex items-center justify-center text-sm font-normal tracking-wide rounded-full text-primary-foreground dark:text-secondary-foreground w-fit px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] border border-white/[0.12]"
-                  href="#"
+                  href="#" // Update link later if needed
                 >
-                  Try for free
+                  Sign Up
                 </Link>
               </div>
               <ThemeToggle />
@@ -167,10 +234,10 @@ export function Navbar() {
               {/* Mobile menu content */}
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <Link href="/" className="flex items-center gap-3">
-                    <Icons.logo className="size-7 md:size-10" />
+                  <Link href="/" className="flex items-center gap-2">
+                    <Icons.logo className="size-7 md:size-10 text-[#155dfc]" />
                     <p className="text-lg font-semibold text-primary">
-                      SkyAgent
+                      SkillStack
                     </p>
                   </Link>
                   <button
@@ -186,42 +253,49 @@ export function Navbar() {
                   variants={drawerMenuContainerVariants}
                 >
                   <AnimatePresence>
-                    {siteConfig.nav.links.map((item) => (
-                      <motion.li
-                        key={item.id}
-                        className="p-2.5 border-b border-border last:border-b-0"
-                        variants={drawerMenuVariants}
-                      >
-                        <a
-                          href={item.href}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const element = document.getElementById(
-                              item.href.substring(1),
-                            );
-                            element?.scrollIntoView({ behavior: "smooth" });
-                            setIsDrawerOpen(false);
-                          }}
-                          className={`underline-offset-4 hover:text-primary/80 transition-colors ${
-                            activeSection === item.href.substring(1)
-                              ? "text-primary font-medium"
-                              : "text-primary/60"
-                          }`}
-                        >
-                          {item.name}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </AnimatePresence>
-                </motion.ul>
+                     {siteConfig.nav.links.map((item) => (
+                       <motion.li
+                         key={item.id}
+                         className="p-2.5 border-b border-border last:border-b-0"
+                         variants={drawerMenuVariants}
+                       >
+                         {item.href.startsWith("/") ? (
+                           <Link
+                             href={item.href}
+                             onClick={() => setIsDrawerOpen(false)} // Close drawer on navigation
+                             className={`underline-offset-4 hover:text-primary/80 transition-colors ${
+                               isMobileLinkActive(item)
+                                 ? "text-primary font-medium"
+                                 : "text-primary/60"
+                             }`}
+                           >
+                             {item.name}
+                           </Link>
+                         ) : (
+                           <a
+                             href={item.href}
+                             onClick={(e) => handleMobileAnchorClick(e, item.href)}
+                             className={`underline-offset-4 hover:text-primary/80 transition-colors ${
+                               isMobileLinkActive(item)
+                                 ? "text-primary font-medium"
+                                 : "text-primary/60"
+                             }`}
+                           >
+                             {item.name}
+                           </a>
+                         )}
+                       </motion.li>
+                     ))}
+                   </AnimatePresence>
+                 </motion.ul>
 
                 {/* Action buttons */}
                 <div className="flex flex-col gap-2">
                   <Link
-                    href="#"
+                    href="#" // Update link later if needed
                     className="bg-secondary h-8 flex items-center justify-center text-sm font-normal tracking-wide rounded-full text-primary-foreground dark:text-secondary-foreground w-full px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_3px_3px_-1.5px_rgba(16,24,40,0.06),0_1px_1px_rgba(16,24,40,0.08)] border border-white/[0.12] hover:bg-secondary/80 transition-all ease-out active:scale-95"
                   >
-                    Try for free
+                    Sign Up
                   </Link>
                 </div>
               </div>

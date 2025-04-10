@@ -3,28 +3,60 @@ import { cn } from "@/lib/utils";
 export const Icons = {
   logo: ({ className }: { className?: string }) => (
     <svg
-      width="42"
-      height="24"
-      viewBox="0 0 42 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("size-4 fill-[var(--secondary)]", className)}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      width="500" // Using original width/height, className will resize
+      zoomAndPan="magnify"
+      viewBox="0 0 375 374.999991"
+      height="500"
+      preserveAspectRatio="xMidYMid meet"
+      version="1.0"
+      className={cn("size-4 fill-current", className)} // Use fill-current and className
     >
-      <g clipPath="url(#clip0_322_9172)">
-        <path
-          d="M22.3546 0.96832C22.9097 0.390834 23.6636 0.0664062 24.4487 0.0664062C27.9806 0.0664062 31.3091 0.066408 34.587 0.0664146C41.1797 0.0664284 44.481 8.35854 39.8193 13.2082L29.6649 23.7718C29.1987 24.2568 28.4016 23.9133 28.4016 23.2274V13.9234L29.5751 12.7025C30.5075 11.7326 29.8472 10.0742 28.5286 10.0742H13.6016L22.3546 0.96832Z"
-          fill="current"
-        />
-        <path
-          d="M19.6469 23.0305C19.0919 23.608 18.338 23.9324 17.5529 23.9324C14.021 23.9324 10.6925 23.9324 7.41462 23.9324C0.821896 23.9324 -2.47942 15.6403 2.18232 10.7906L12.3367 0.227022C12.8029 -0.257945 13.6 0.0855283 13.6 0.771372L13.6 10.0754L12.4265 11.2963C11.4941 12.2662 12.1544 13.9246 13.473 13.9246L28.4001 13.9246L19.6469 23.0305Z"
-          fill="current"
-        />
-      </g>
       <defs>
-        <clipPath id="clip0_322_9172">
-          <rect width="42" height="24" fill="white" />
+        <clipPath id="e36d3d0acb">
+          <path
+            d="M 157 122 L 218 122 L 218 310.527344 L 157 310.527344 Z M 157 122 "
+            clipRule="nonzero"
+          />
+        </clipPath>
+        <clipPath id="f589ea1a1a">
+          <path
+            d="M 233 64.527344 L 300 64.527344 L 300 310 L 233 310 Z M 233 64.527344 "
+            clipRule="nonzero"
+          />
+        </clipPath>
+        <clipPath id="e07f697040">
+          <path
+            d="M 75.132812 183 L 142 183 L 142 310 L 75.132812 310 Z M 75.132812 183 "
+            clipRule="nonzero"
+          />
         </clipPath>
       </defs>
+      <g clipPath="url(#e36d3d0acb)">
+        <path
+          fill="currentColor" // Changed to currentColor
+          d="M 157.632812 122.25 L 217.539062 122.25 L 217.539062 310.46875 L 157.632812 310.46875 Z M 157.632812 122.25 "
+          fillOpacity="1"
+          fillRule="nonzero"
+        />
+      </g>
+      <g clipPath="url(#f589ea1a1a)">
+        <path
+          fill="currentColor" // Changed to currentColor
+          d="M 299.191406 64.527344 L 299.191406 238.40625 C 299.191406 275.613281 270.519531 306.847656 233.488281 309.730469 L 233.488281 64.527344 Z M 299.191406 64.527344 "
+          fillOpacity="1"
+          fillRule="nonzero"
+        />
+      </g>
+      <g clipPath="url(#e07f697040)">
+        <path
+          fill="currentColor" // Changed to currentColor
+          d="M 75.945312 183.773438 L 75.945312 238.40625 C 75.945312 275.613281 104.613281 306.847656 141.648438 309.730469 L 141.648438 183.773438 Z M 75.945312 183.773438 "
+          fillOpacity="1"
+          fillRule="nonzero"
+        />
+      </g>
     </svg>
   ),
   soc2: ({ className }: { className?: string }) => (
