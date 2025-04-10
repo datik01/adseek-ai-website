@@ -43,25 +43,7 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
   const lastFrameTimestampRef = useRef<number>(0); // Added ref for previous frame time
   const gameAreaRef = useRef<HTMLDivElement>(null);
 
-  const resetGame = useCallback(() => {
-    setGameState(INITIAL_STATE);
-    lastObstacleTimeRef.current = 0;
-    lastScoreIncrementTimeRef.current = 0; // Reset accumulator
-    lastFrameTimestampRef.current = 0; // Reset frame timestamp
-    if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current);
-    // Start the loop, capture the first timestamp to initialize frame timing
-    gameLoopRef.current = requestAnimationFrame((firstTimestamp) => {
-        lastFrameTimestampRef.current = firstTimestamp; // Initialize last frame time
-        gameLoop(firstTimestamp); // Start the actual loop
-    });
-  }, []); // Add gameLoop to dependencies later if needed, currently empty for mount/unmount behavior
-
-  const jump = useCallback(() => {
-    if (!gameState.isJumping && !gameState.isGameOver) {
-      setGameState(prev => ({ ...prev, dinoVelY: JUMP_FORCE, isJumping: true }));
-    }
-  }, [gameState.isJumping, gameState.isGameOver]);
-
+  // Forward declare gameLoop so resetGame can use it in useCallback dependency
   const gameLoop = useCallback((timestamp: number) => {
     if (gameState.isGameOver) {
       if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current);
@@ -70,14 +52,16 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
     }
 
     // Calculate deltaTime since last frame
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const deltaTime = timestamp - lastFrameTimestampRef.current;
     lastFrameTimestampRef.current = timestamp; // Update for next frame calculation
 
     setGameState(prev => {
-      // Use previous state directly for calculations
-      let { dinoY, dinoVelY, isJumping, obstacles, gameSpeed } = prev;
+      // FIX: Use const for variables not reassigned, let for those that are
+      const { obstacles, gameSpeed, ...restPrev } = prev; // Use const for non-reassigned
+      let { dinoY, dinoVelY, isJumping } = restPrev;      // Use let for reassigned
 
-      // Update Dino position (Gravity) - Use deltaTime for potentially smoother physics if needed, but sticking to original for now
+      // Update Dino position (Gravity)
       dinoVelY += GRAVITY;
       dinoY += dinoVelY;
 
@@ -90,7 +74,7 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
 
       // Update Obstacles
       const newObstacles = obstacles
-        .map(obs => ({ ...obs, x: obs.x - gameSpeed }))
+        .map(obs => ({ ...obs, x: obs.x - gameSpeed })) // Use const gameSpeed here
         .filter(obs => obs.x + obs.width > 0); // Remove off-screen obstacles
 
       // Add new obstacles
@@ -142,7 +126,7 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
       // --- End Score Update Logic ---
 
       // Increase speed gradually based on previous speed
-      const newGameSpeed = prev.gameSpeed + 0.001;
+      const newGameSpeed = prev.gameSpeed + 0.001; // Use const gameSpeed here
 
 
       return {
@@ -158,8 +142,29 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
     });
 
     gameLoopRef.current = requestAnimationFrame(gameLoop);
-    // Remove onScoreUpdate from dependencies here as it's handled in a separate effect
-  }, [gameState.isGameOver, onGameOver]);
+  }, [gameState.isGameOver, onGameOver]); // Keep dependencies as they were, gameLoop depends on these
+
+
+  const resetGame = useCallback(() => {
+    setGameState(INITIAL_STATE);
+    lastObstacleTimeRef.current = 0;
+    lastScoreIncrementTimeRef.current = 0; // Reset accumulator
+    lastFrameTimestampRef.current = 0; // Reset frame timestamp
+    if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current);
+    // Start the loop, capture the first timestamp to initialize frame timing
+    gameLoopRef.current = requestAnimationFrame((firstTimestamp) => {
+        lastFrameTimestampRef.current = firstTimestamp; // Initialize last frame time
+        gameLoop(firstTimestamp); // Start the actual loop
+    });
+  }, [gameLoop]); // FIX: Add gameLoop dependency
+
+
+  const jump = useCallback(() => {
+    if (!gameState.isJumping && !gameState.isGameOver) {
+      setGameState(prev => ({ ...prev, dinoVelY: JUMP_FORCE, isJumping: true }));
+    }
+  }, [gameState.isJumping, gameState.isGameOver]);
+
 
   // Effect to call onScoreUpdate when internal score changes
   useEffect(() => {
@@ -173,8 +178,9 @@ export default function DinoGame({ onScoreUpdate, onGameOver }: { onScoreUpdate:
     return () => {
       if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // FIX: Removed the eslint-disable comment as it's no longer needed after adding resetGame dependency
   }, [resetGame]); // Only run on mount/unmount
+
 
   // Handle user input (jump)
   useEffect(() => {
